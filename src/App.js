@@ -1,5 +1,33 @@
 import logo from './logo.svg';
 import './App.css';
+import React from 'react';
+
+const ApplicantStage = Object.freeze({
+  APPLIED: Symbol("Applied"),
+  INTERVIEWED: Symbol("Interviewed"),
+  OFFER: Symbol("OFFER"),
+  ACCEPTED: Symbol("ACCEPTED")
+});
+
+class Offer extends React.Component {
+  constructor(props) {
+    super(props);
+    props.state = {
+      baseSalary: 0,
+      signOnBonus: 0
+    };
+  };
+}
+
+class Applicant extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      stage: ApplicantStage.APPLIED,
+      offer: null
+    };
+  }
+}
 
 function App() {
   return (
